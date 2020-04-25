@@ -1,0 +1,49 @@
+.sprite-personas{
+max-width: 100%;
+height: 240px;
+background: url('/images/img_people.jpg') no-repeat;
+display:inline-block;
+}
+
+#docente-mujer{
+  background-position: -500px -168px;
+}
+#docente-hombre{
+  background-position: -77px -716px;
+}
+
+#alumno-hombre{
+  background-position: -923px -1235px;
+}
+#alumno-mujer{
+  background-position: -77px -1235px;
+}
+
+#trabajador-mujer{
+  background-position: -500px -1235px;
+}
+#trabajador-hombre{
+  background-position: -1346px -1235px;
+}
+
+
+
+.sprite-cosas{
+max-width: 100%;
+height: 240px;
+background: url('/images/img_stuffs.jpg');
+display:inline-block;
+background-size: 1721%;
+}
+
+#automovil{
+  background-position: -154px -154px;
+}
+
+#equipo-computo{
+  background-position: -3773px -154px;
+}
+
+#lapiz{
+  background-position: -1763px -2964px;
+}
