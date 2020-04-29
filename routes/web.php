@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('inicio')->middleware('isLogged');
 
-Auth::routes();
-
 Route::get('/home', function(){
   return view('index');
 })->name('home');
+
+Auth::routes();
 
 
 Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
@@ -30,7 +30,14 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
     return view('admin.index');
   })->middleware('password.confirm');
 
-  Route::prefix('/alumno')->group(function(){
+
+  Route::resources([
+      'alumno' => 'AlumnoController',
+      'equipo' => 'EquipoController'
+  ]);
+  Route::get('/busqueda','BuscadorController@buscar');
+
+  /*Route::prefix('/alumno')->group(function(){
 
     //Rutas correspondientes a la creacion de usuario
     Route::get('/crear', function(){
@@ -46,7 +53,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
     Route::post('/crear_equipo','AlumnoController@verAlumnoEquipo');
     Route::get('/equipo_asignado/{id_alumno}', 'EquipoController@store');
 
-    //Route::post('/busqueda','AlumnoController@buscador');
+    //
 
     //Rutas correspondientes a la asignación de vehiculos para alumnos
 
@@ -60,7 +67,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
 
     Route::get('/ver', 'AlumnoController@verAlumno');
 
-  });
+  });*/
 
 
 

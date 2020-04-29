@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  @if ($errors->any())
+ @if ($errors->any())
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <div class="alert alert-danger">
@@ -16,13 +16,19 @@
     </div>
   @endif
 
+  @if(Session::has('success'))
+			<div class="alert alert-info">
+				{{Session::get('success')}}
+			</div>
+	@endif
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Crear Alumno</div>
                   <div class="card-body">
 
-                    <form method="post" action="/admin/alumno/creado">
+                    <form method="post" action="{{route('alumno.store')}}" role="form">
                       @csrf
                       <div class="row">
                         <div class="col-xs-12 col-md-12">

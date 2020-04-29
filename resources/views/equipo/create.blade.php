@@ -23,8 +23,9 @@
                 <div class="card-header">Asignar Equipo</div>
                   <div class="card-body">
 
-                    <form method="get" action="/admin/alumno/equipo_asignado/{{$alumno->id_alumno}}/">
+                    <form method="post" action="{{route('equipo.store')}}">
                       @csrf
+                      <input type="hidden" name="id_alumno" value="{{$alumno->id_alumno}}">
                       <div class="row">
                         <div class="col-xs-12 col-md-6">
                           <label for="Matricula">Matricula de Alumno</label>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class Utilidades extends Controller
 {
-  public function encryptQR($string){
+  public static function encryptQR($string){
     $ciphering = "AES-128-CTR"; //Método de encriptacion
     $iv_length = openssl_cipher_iv_length($ciphering);
     $options = 0;
@@ -18,7 +18,7 @@ class Utilidades extends Controller
     return $encryption;
   }
 
-  public function decryptQR($string){
+  public static function decryptQR($string){
     $decryption_iv = '1234567891011121';
     $decryption_key = "rootPasword";
     $decryption=openssl_decrypt ($string, $ciphering,

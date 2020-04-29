@@ -16,13 +16,19 @@
     </div>
   @endif
 
+  @if(Session::has('success'))
+      <div class="alert alert-info">
+        {{Session::get('success')}}
+      </div>
+  @endif
+
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Asignar Equipo</div>
                   <div class="card-body">
 
-                    <form method="post" action="/admin/alumno/crear_equipo">
+                    <form method="get" action="{{route('equipo.create')}}" role="form">
                       @csrf
                       <div class="row">
                         <div class="col-xs-12 col-md-12">

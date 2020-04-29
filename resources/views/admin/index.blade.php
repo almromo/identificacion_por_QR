@@ -16,7 +16,7 @@
                         <div class="card-body">
                           <h4 class="card-title">Nuevo Alumno</h4>
                           <p class="card-text">Crea un nuevo alumno en el sistema</p>
-                          <a href="admin/alumno/crear/" class="btn btn-success">Crear Alumno</a>
+                          <a href="{{route('alumno.create')}}" class="btn btn-success">Crear Alumno</a>
                         </div>
                       </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="card-body">
                           <h4 class="card-title">Agregar equipo a un alumno</h4>
                           <p class="card-text">Agrega un equipo de computo y asignalo a un alumno ya existente</p>
-                          <a href="admin/alumno/asignar_equipo" class="btn btn-success">Crear Equipo</a>
+                          <a href="{{route('equipo.index')}}" class="btn btn-success">Crear Equipo</a>
                         </div>
                       </div>
                     </div>

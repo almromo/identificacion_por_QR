@@ -10,6 +10,15 @@ use App\Http\Controllers\Utilidades;
 class AlumnoController extends Controller
 {
 
+    public function index(){
+      return view('admin.index');
+    }
+
+    public function create()
+    {
+        return view('alumno.create');
+    }
+
     public function store(AlumnoRequest $request,Utilidades $utilidades){
       $alumno = new Alumno;
 
@@ -24,20 +33,8 @@ class AlumnoController extends Controller
 
       $alumno->save();
 
-      return redirect('/admin/alumno/crear');
+      return redirect()->route('alumno.create')->with('success','Alumno creado satisfactoriamente');
 
-    }
-
-    public function buscar(Request $request){
-
-      $alumno = Alumno::where("matricula",'like',$request->search.'%')->take(2)->get();
-
-      $response = array();
-      foreach($alumno as $value){
-        $response[] = array("label" => $value->matricula);
-      }
-
-      return json_encode($response);
     }
 
     public function showByMatricula($matricula){
@@ -49,17 +46,7 @@ class AlumnoController extends Controller
 
     }
 
-    public function verAlumnoEquipo(Request $request){
-
-      $matricula = $request->matricula;
-
-      $alumno = $this->showByMatricula($matricula);
-
-      return view('alumnos.crear_equipo',compact('alumno'));
-
-    }
-
-    public function verAlumno(Request $request){
+    public function show(Request $request){
 
       $matricula = $request->matricula;
 

@@ -5,8 +5,8 @@ $( function() {
   source: function( request, response ) {
    // Fetch data
    $.ajax({
-    url: "/admin/alumno/busqueda",
-    type: 'post',
+    url: "/admin/busqueda/",
+    type: 'get',
     dataType: "json",
     data: {
      search: request.term,
