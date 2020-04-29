@@ -11,7 +11,7 @@ class AlumnoController extends Controller
 {
 
     public function index(){
-      return view('admin.index');
+      return view('alumno.create');
     }
 
     public function create()
@@ -37,22 +37,4 @@ class AlumnoController extends Controller
 
     }
 
-    public function showByMatricula($matricula){
-
-      $alumno = Alumno::where("matricula","=",$matricula)
-                        ->firstOrFail();
-
-      return $alumno;
-
-    }
-
-    public function show(Request $request){
-
-      $matricula = $request->matricula;
-
-      $alumno = $this->showByMatricula($matricula);
-
-      return view('alumnos.ver',compact('alumno'));
-
-    }
 }

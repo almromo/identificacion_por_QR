@@ -16,7 +16,7 @@
                         <div class="card-body">
                           <h4 class="card-title">Nuevo Alumno</h4>
                           <p class="card-text">Crea un nuevo alumno en el sistema</p>
-                          <a href="{{route('alumno.create')}}" class="btn btn-success">Crear Alumno</a>
+                          <a href="{{route('alumno.index')}}" class="btn btn-success">Crear Alumno</a>
                         </div>
                       </div>
                     </div>
@@ -36,7 +36,7 @@
                         <div class="card-body">
                           <h4 class="card-title">Agregar un vehiculo a un alumno</h4>
                           <p class="card-text">Agrega un vehiculo y asignalo a un alumno ya existente</p>
-                          <a href="#" class="btn btn-success">Crear Vehiculo</a>
+                          <a href="{{route('vehiculo.index')}}" class="btn btn-success">Crear Vehiculo</a>
                         </div>
                       </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div class="card-body">
                           <h4 class="card-title">Administrar alumnos</h4>
                           <p class="card-text">Visualice,Modifique o elimine la información de un alumno ya existente</p>
-                          <a href="admin/alumno/gestionar" class="btn btn-warning">Administrar Alumno</a>
+                          <a href="{{route('gestion.alumno')}}" class="btn btn-warning">Administrar Alumno</a>
                         </div>
                       </div>
                     </div>

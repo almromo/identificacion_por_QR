@@ -30,46 +30,16 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
     return view('admin.index');
   })->middleware('password.confirm');
 
+  Route::get('/busqueda','BuscadorController@buscar');
 
   Route::resources([
       'alumno' => 'AlumnoController',
-      'equipo' => 'EquipoController'
+      'equipo' => 'EquipoController',
+      'vehiculo' => 'VehiculoController'
   ]);
-  Route::get('/busqueda','BuscadorController@buscar');
 
-  /*Route::prefix('/alumno')->group(function(){
-
-    //Rutas correspondientes a la creacion de usuario
-    Route::get('/crear', function(){
-      return view('alumnos.crear');
-    });
-    Route::post('/creado', 'AlumnoController@store');
-
-
-    //Rutas correspondientes a la asignación de equipo para usuarios
-    Route::get('/asignar_equipo', function(){
-      return view('alumnos.asignar_equipo');
-    });
-    Route::post('/crear_equipo','AlumnoController@verAlumnoEquipo');
-    Route::get('/equipo_asignado/{id_alumno}', 'EquipoController@store');
-
-    //
-
-    //Rutas correspondientes a la asignación de vehiculos para alumnos
-
-
-    //Rutas correspondientes a la gestion de alumnos
-    Route::post('/busqueda', 'AlumnoController@buscar');
-
-    Route::get('/gestionar', function(){
-      return view('alumnos.gestionar');
-    });
-
-    Route::get('/ver', 'AlumnoController@verAlumno');
-
-  });*/
-
-
+  Route::get('gestion/alumno','GestionadorAlumnosController@index')->name('gestion.alumno');
+  Route::get('gestion/alumno/ver/','GestionadorAlumnosController@ver')->name('ga.ver');
 
 
 });

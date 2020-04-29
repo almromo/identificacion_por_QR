@@ -19,24 +19,42 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($alumno->vehiculos as $vehiculo)
         <tr>
-          <td>AL-02-03</td>
-          <td>Automóvil</td>
-          <td>Honda</td>
-          <td>Civic</td>
-          <td>Blanco</td>
-          <th><a href="#" class="btn btn-success btn-sm">Ver</a></th>
+          <td>{{$vehiculo->placa_vehiculo}}</td>
+          <td>{{$vehiculo->tipo_vehiculo}}</td>
+          <td>{{$vehiculo->marca_vehiculo}}</td>
+          <td>{{$vehiculo->modelo_vehiculo}}</td>
+          <td>{{$vehiculo->color_vehiculo}}</td>
+          <th><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#qr_v{{$vehiculo->id_vehiculo}}">
+              Ver
+              </button>
+          </th>
           <th><a href="#" class="btn btn-warning btn-sm">Modificar</a>  <a href="#" class="btn btn-danger btn-sm">Eliminar</a></th>
         </tr>
-        <tr>
-          <td>LS-22-1</td>
-          <td>Motocicleta</td>
-          <td>Bajaj</td>
-          <td>Pulsar RS2</td>
-          <td>Negro</td>
-          <th><a href="#" class="btn btn-success btn-sm">Ver</a></th>
-          <th><a href="#" class="btn btn-warning btn-sm">Modificar</a>  <a href="#" class="btn btn-danger btn-sm">Eliminar</a></th>
-        </tr>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="qr_v{{$vehiculo->id_vehiculo}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Imagen QR</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <p> Estás viendo el código QR del vehiculo con placas {{$vehiculo->placa_vehiculo}}. </p>
+                <hr>
+                <img class="img-fluid" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(500)->generate($vehiculo->codigo_qr)) !!} ">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        @endforeach
       </tbody>
     </table>
 

@@ -18,7 +18,7 @@
                       </div>
                     </div>
 
-                    <form action="/admin/alumno/ver" method="get">
+                    <form action="{{route('ga.ver')}}" method="get">
                       <div class="row">
                         <div class="col-xs-12 col-md-12">
                           <label for="Matricula">Matricula</label>

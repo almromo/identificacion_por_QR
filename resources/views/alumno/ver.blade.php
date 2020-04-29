@@ -26,13 +26,13 @@
                       <!-- Tab panes -->
                       <div class="tab-content">
                         <div class="tab-pane container active" id="alumno">
-                          @include('alumnos.gestion.alumnos')
+                          @include('alumno.gestion.alumno')
                         </div>
                         <div class="tab-pane container fade" id="equipo">
-                          @include('alumnos.gestion.equipo')
+                          @include('alumno.gestion.equipo')
                         </div>
                         <div class="tab-pane container fade" id="vehiculo">
-                          @include('alumnos.gestion.vehiculo')
+                          @include('alumno.gestion.vehiculo')
                         </div>
                       </div>
 

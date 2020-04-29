@@ -10,10 +10,10 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('js/buscador.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
