@@ -26,11 +26,20 @@
           <td>{{$vehiculo->marca_vehiculo}}</td>
           <td>{{$vehiculo->modelo_vehiculo}}</td>
           <td>{{$vehiculo->color_vehiculo}}</td>
-          <th><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#qr_v{{$vehiculo->id_vehiculo}}">
+          <th>
+            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#qr_v{{$vehiculo->id_vehiculo}}">
               Ver
-              </button>
+            </button>
           </th>
-          <th><a href="#" class="btn btn-warning btn-sm">Modificar</a>  <a href="#" class="btn btn-danger btn-sm">Eliminar</a></th>
+          <th>
+            <form action="{{route('vehiculo.edit',$vehiculo->id_vehiculo)}}" method="get" role="form">
+              <input type="submit" class="btn btn-warning btn-sm" value="Modificar"/>
+            </form>
+            <form action="{{route('vehiculo.destroy',$vehiculo->id_vehiculo)}}" method="post" role="form">
+              @csrf
+              @method('DELETE')
+              <input type="submit" onclick="return confirm('¿Está seguro de borrar este registro?')" class="btn btn-danger" value="Eliminar">
+            </form>
         </tr>
 
         <!-- The Modal -->

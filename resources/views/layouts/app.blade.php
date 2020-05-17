@@ -75,5 +75,12 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+    $(document).ready(function(){
+      $('.toast').toast({delay: 10000});
+      $('.toast').toast('show');
+    });
+    </script>
 </body>
 </html>

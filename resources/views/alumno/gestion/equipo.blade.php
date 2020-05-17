@@ -1,5 +1,5 @@
 
-<p>Estás viendo los equipos que {{$alumno->nombre}} tiene registrado a su nombre
+<p>Estás viendo los equipos que {{$alumno->nombre}} tiene registrado a su nombre</p>
 <hr>
 
 <div class="row">
@@ -29,7 +29,16 @@
               Ver
               </button>
           </th>
-          <th><a href="#" class="btn btn-warning btn-sm">Modificar</a>  <a href="#" class="btn btn-danger btn-sm">Eliminar</a></th>
+          <th>
+            <form action="{{route('equipo.edit',$equipo->id_equipo)}}" method="get" role="form">
+              <input type="submit" class="btn btn-warning btn-sm" value="Modificar">
+            </form>
+
+            <form action="{{route('equipo.destroy',$equipo->id_equipo)}}" method="post" role="form">
+              @csrf
+              @method('DELETE')
+              <input type="submit" onclick="return confirm('¿Está seguro de borrar este registro?')" class="btn btn-danger" value="Eliminar">
+            </form>
         </tr>
 
 
@@ -43,10 +52,10 @@
               <div class="modal-body">
                 <p> Estás viendo el código QR del equipo con n° serie {{$equipo->numero_serie}}. </p>
                 <hr>
-                <img class="img-fluid" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(500)->generate($equipo->codigo_qr)) !!} ">
+                <img class="img-fluid mx-auto d-block" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(400)->generate($equipo->codigo_qr)) !!} ">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               </div>
 
             </div>
@@ -55,6 +64,8 @@
         @endforeach
       </tbody>
     </table>
+
+    <hr>
 
   </div>
 </div>

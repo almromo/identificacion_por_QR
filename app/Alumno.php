@@ -10,6 +10,10 @@ class Alumno extends Model
   protected $primaryKey = 'id_alumno';
   protected $fillable = ['matricula','nombre','apellido_paterno','apellido_materno'];
 
+  public function getRouteKey()
+  {
+      return $this->slug;
+  }
   public function vehiculos(){
     return $this->hasMany('App\Vehiculo','id_alumno','id_alumno');
   }

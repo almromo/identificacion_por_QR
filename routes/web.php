@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/home', function(){
   return view('index');
-})->name('home');
+})->name('home')->middleware('auth');
 
 Auth::routes();
 
@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
 
   Route::get('/',function(){
     return view('admin.index');
-  })->middleware('password.confirm');
+  })->middleware('password.confirm')->name('admin.index');
 
   Route::get('/busqueda','BuscadorController@buscar');
 
@@ -38,8 +38,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '/admin'],function(){
       'vehiculo' => 'VehiculoController'
   ]);
 
-  Route::get('gestion/alumno','GestionadorAlumnosController@index')->name('gestion.alumno');
-  Route::get('gestion/alumno/ver/','GestionadorAlumnosController@ver')->name('ga.ver');
+  Route::get('buscar/alumno','GestionadorAlumnosController@index')->name('gestion.alumno');
+  Route::post('gestion/alumno/ver','AlumnoController@search')->name('ga.ver');
 
 
 });

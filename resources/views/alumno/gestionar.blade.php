@@ -18,7 +18,8 @@
                       </div>
                     </div>
 
-                    <form action="{{route('ga.ver')}}" method="get">
+                    <form action="{{route('ga.ver')}}" method="post">
+                      @csrf
                       <div class="row">
                         <div class="col-xs-12 col-md-12">
                           <label for="Matricula">Matricula</label>
